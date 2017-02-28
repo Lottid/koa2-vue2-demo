@@ -1,0 +1,6 @@
+
+// console.log(require('runkoa'));
+var basePath = require("../base.js").rootPath;
+console.log(__dirname + '/prg.js','__dirname');
+console.log(basePath + '/prg.js','basePath');
+require('runkoa')(basePath + '/prg.js');

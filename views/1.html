@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+<body>
+<a href="upload">eeee</a>
+<div>here</div>
+<button id="button">click</button>
+<button id="button1">click</button>
+<button id="button2">click</button>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+$("#button").click(function() {
+	$.ajax({
+		url: '/dataget',
+		type: 'GET',
+		dataType: 'JSON',
+		data: {id: 12}
+	})
+	.done(function(data) {
+		console.log("success");
+		console.log(data);
+		window.ctx = data
+		//window.location.href = window.location.href + 'list'
+	})
+	.fail(function(error) {
+		console.log("error");
+		console.log(error);
+	})
+	.always(function() {
+		console.log("complete");
+	});
+	
+});
+// console.log(img.length);
+// console.log(img1.length);
+
+$("#button1").click(function() {
+	$.ajax({
+		url: '/datapost',
+		type: 'POST',
+		dataType: 'JSON',
+		data: {
+			name:'许总',
+			age : "32"
+		}
+	})
+	.done(function(data) {
+		console.log("success");
+		console.log(data);
+		window.ctx1 = data
+		//window.location.href = window.location.href + 'list'
+	})
+	.fail(function(error) {
+		console.log("error");
+		console.log(error);
+	})
+	.always(function() {
+		console.log("complete");
+	});
+	
+});
+</script>
+</body>
+</html>
